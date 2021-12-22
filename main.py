@@ -14,8 +14,8 @@ tick = input("Company name (ex: facebook-inc) : ")
 while True:
     url = requests.get(f'https://www.investing.com/equities/{tick}')
     soup = bs4.BeautifulSoup(url.text, features="html.parser")
-    price = soup.find("span", {'class': 'instrument-price_last__KQzyA'}).text
-    percent = soup.find("span", {'class': 'instrument-price_change-percent__19cas instrument-price_up__2-OcT'}).text
+    price = soup.find("span", {'class': 'text-2xl'}).text
+    percent = soup.find("span", {'class': 'instrument-price_change-percent__19cas ml-2.5 text-positive-main'}).text
     name = tick.upper()
     sleep(30)
     print(f"The current price of {name} is {price}, a change of {percent}")
